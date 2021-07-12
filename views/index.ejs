@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b3bfe1b001.js" crossorigin="anonymous"></script>
+    {{!-- <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css"> --}}
+    <link rel="stylesheet" href="style.css">
+    <title>IT Bank</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <a href="/" class="navbar-brand mr-auto logo"><img src="./images/logo.jpg" class="img-fluid rounded-circle" height="30" width="41">
+            <em class="logotext">Initiate Transactions</em></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto links">
+                    <li class="nav-item active"><a href="#" class="nav-link"> Home</span></a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link"> About</span></a></li>
+                    <li class="nav-item"><a href="/customers" class="nav-link"> Customers</span></a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link"> Contact</span></a></li>
+                </ul>
+                <span class="navbar-text">
+                    
+                    <a role="button" id="loginBtn" data-target="#registrationModal" data-toggle="modal">
+                        <span class="fa fa-sign-in d-sm-none d-md-inline"></span> Register
+                    </a>
+                </span>
+                <span class="navbar-text ml-2">
+                    
+                    <a role="button" data-target="#transferModal" data-toggle="modal" class="btn btn-outline-light">
+                        <i class="fas fa-exchange-alt"> Transfer </i>
+                    </a>
+                </span>
+                </div>
+        </div>
+        
+    </nav>
+
+    <!-- registration modal -->
+    <div class="modal fade" id="registrationModal" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Register Yourself</h4>
+                    <button type="button" data-dismiss="modal" class="close">&times;</button>
+                </div>
+                <div class="modal-body container row">
+                    <form  action="/" method="POST" class="col-12 col-sm-7 border-right">
+                        <div class="form-group row">
+                            <span class="fa fa-user"></span><input type="text" id="name" name="name" class="col-11 border-bottom" required autocomplete="off" style="padding: 7px 25px;">
+                            <label for="name" class="col-12 offset-1">Name</label>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <span class="fa fa-envelope"></span><input type="email" id="email" name="email" class="col-11  border-bottom mx-3" required autocomplete="off" style="margin-top: -10px; padding: 7px 25px;">
+                            <label for="email" class="col-12 offset-1">Email</label>
+                        </div>
+                        <div class="form-group row">
+                            <span class="fa fa-lock"></span><input type="password" id="password" name="pass" class="col-11  border-bottom" required autocomplete="off" style="padding: 7px 25px;">
+                            <label for="password" class="col-12 offset-1">Password</label>
+                        </div>
+                        <div class="form-group row">
+                            <span class="fa fa-envelope"></span><input type="number" id="balance" name="balance" class="col-11  border-bottom mx-3" required autocomplete="off" style=" padding: 7px 25px;">
+                            <label for="balance" class="col-12 offset-1">Initial Balance</label>
+                        </div>
+                        <div class="col-12 offset-1">
+                            <button type="submit" class="btn btn-outline-light" id="registerBtn">
+                                Register
+                            </button>
+                            <button type="submit" class="btn btn-outline-light" data-dismiss="modal">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                    <div class="d-none d-sm-block col-sm-5 formimg">
+                        <!-- <img src="./images/pexels-karolina-grabowska-4968391.jpg" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transfer modal -->
+    <div class="modal fade" id="transferModal" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Transfer Money</h4>
+                    <button type="button" data-dismiss="modal" class="close">&times;</button>
+                </div>
+                <div class="modal-body container row">
+                    <form method="POST" action="/transfer" class="col-12 col-sm-7 border-right">
+                        <div class="form-group row">
+                            <span class="fa fa-user"></span><input type="text" id="sendername" name="sendername" class="col-11 border-bottom" required autocomplete="off" style="padding: 7px 25px;">
+                            <label for="sendername" class="col-12 offset-1">Sender's Name</label>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <span class="fa fa-lock"></span><input type="password" id="senderpass" name="senderpass" class="col-11 border-bottom" required autocomplete="off" style="padding: 7px 25px;">
+                            <label for="senderpass" class="col-12 offset-1">Sender's Password</label>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <span class="fa fa-user"></span><input type="text" id="recievername" name="recievername" class="col-11 border-bottom" required autocomplete="off" style="padding: 7px 25px;">
+                            <label for="sendername" class="col-12 offset-1">Reciever's Name</label>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <i class="fas fa-rupee-sign"></i><input type="number" id="transferamt" name="transferamt" class="col-11 border-bottom " required autocomplete="off" style="margin-top: -7px; padding: 7px 25px;">
+                            <label for="transferamt" class="col-12 offset-1">Amount</label>
+                        </div>
+                        <div class="col-12 offset-1">
+                            <button type="submit" class="btn btn-outline-light" id="transferBtn">
+                                Transfer
+                            </button>
+                            <button type="submit" class="btn btn-outline-light" data-dismiss="modal">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                    <div class="d-none d-sm-block col-sm-5 formimg">
+                        <!-- <img src="./images/pexels-karolina-grabowska-4968391.jpg" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <header class="jumbotron">
+        <div class="carousel slide" id="mycarousel" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+    
+                    <div class="carousel-body" style="background: url('./images/etienne-martin-2_K82gx9Uk8-unsplash.jpg') no-repeat center center/cover;" id="carousel1">
+                        <div class="container">
+                            <div class="card" id="card1">
+                                <div class="card-header border-bottom">
+                                    <h1 class="display-4">WE Are <span>IT Bank</span> </h1>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <strong class="font-weight-light">Initiate Easy and Convinient Transactions</strong>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-body" style="background: url('./images/lucas-favre-MNXaW_ABlZY-unsplash.jpg') no-repeat center center/cover;">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h1 class="display-4">WE Are <span>IT Bank</span> </h1>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <strong class="font-weight-light">Initiate Easy and Convinient Transactions</strong>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-body" style="background: url('./images/konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg') no-repeat center center/cover;">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h1 class="display-4">WE Are <span>IT Bank</span> </h1>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <strong class="font-weight-light">Initiate Easy and Convinient Transactions</strong>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ol>
+            <a href="#mycarousel" class="carousel-control-prev" data-slide="prev" role="button">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="#mycarousel" class="carousel-control-next" data-slide="next" role="button">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </header>
+
+    <!-- About section -->
+    <section class="container">
+        <div class="row row-content border-bottom align-items-center" id="about">
+            <div class="col-12 col-sm-7">
+                <h1 class="border-bottom heading">About Us</h1>
+                <p class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eius velit, laborum earum facere optio suscipit rem deserunt, pariatur incidunt vel rerum, explicabo blanditiis distinctio porro dolore. Omnis distinctio nisi cumque modi reprehenderit! Cumque quibusdam dolores aperiam amet praesentium dolorem nam non.</p>
+            </div>
+            <div class="d-none d-sm-block col-sm content">
+                <img src="./images/firmbee-com-dAmHWsRYP9c-unsplash.jpg" class="contentimg">
+            </div>
+        </div>
+        <div class="row row-content border-bottom align-items-center bgblack">
+            <div class="col-12 col-sm-7 order-sm-last bggolden">
+                <h1 class="border-bottom heading">Our Mission</h1>
+                <p class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eius velit, laborum earum facere optio suscipit rem deserunt, pariatur incidunt vel rerum, explicabo blanditiis distinctio porro dolore. Omnis distinctio nisi cumque modi reprehenderit! Cumque quibusdam dolores aperiam amet praesentium dolorem nam non.</p>
+            </div>
+            <div class="d-none d-sm-block col-sm order-sm-first content">
+                <img src="./images/pexels-karolina-grabowska-4968391.jpg" class="contentimg">
+            </div>
+        </div>
+        <div class="row row-content border-bottom justify-content-center">
+            <h1 class="border-bottom heading col-12">Experience Our Range Of Banking Solutions</h1>
+            <div class="col-12 col-sm-6 col-md-4 my-4 my-sm-0 my-md-0">
+                <div class="card card2">
+                    
+                    <div class="card-header align-items-center">
+                        <h3 class="heading font-weight-normal" style="font-family: 'Bona Nova', serif;">Mobile Banking <span class="fa fa-mobile fa-lg"></span></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="font-weight-light info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat iure fugit quo illum aliquam!</p>
+                        <button class="btn btn-outline-secondary" type="button">Know More</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 my-4 my-sm-0 my-md-0">
+                <div class="card card2">
+                    
+                    <div class="card-header align-items-center">
+                        <h3 class="heading font-weight-normal" style="font-family: 'Bona Nova', serif;">Net Banking <i class="far fa-credit-card"></i></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="font-weight-light info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat iure fugit quo illum aliquam!</p>
+                        <button class="btn btn-outline-secondary" type="button">Know More</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-12 col-md-4 my-sm-5 my-md-0">
+                <div class="card card2">
+                    
+                    <div class="card-header align-items-center">
+                        <h3 class="heading font-weight-normal" style="font-family: 'Bona Nova', serif;">Home Loan <i class="fas fa-house-user"></i></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="font-weight-light info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat iure fugit quo illum aliquam!</p>
+                        <button class="btn btn-outline-secondary" type="button">Know More</button>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Us -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row align-items-center">             
+                <div class="col-4 offset-1 col-sm-2 border-right">
+                    <h4>Links</h4>
+                    <ul class="list-unstyled conlinks">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="./contactus.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5 border-right text-center">
+                    <h4>Our Address</h4>
+                    <address>
+		              121, Clear Water Bay Road<br>
+		              Clear Water Bay, Kowloon<br>
+		              HONG KONG<br>
+		              <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+		              <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+		              <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+		           </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center my-sm-3">
+                        <h4>Social Links</h4>
+                        <a class="btn btn-social-icon btn-outline-dark rounded-circle" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-outline-dark rounded-circle" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-outline-dark rounded-circle" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-outline-dark rounded-circle" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-outline-dark rounded-circle" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-outline-dark rounded-circle" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+           </div>
+           
+        </div>
+    </footer>
+    <div class="row justify-content-center footend">             
+        <div class="col-auto">
+            <p>© Copyright 2018 Ristorante Con Fusion</p>
+        </div>
+   </div>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+<script src="jq/jquery.slim.min.js"></script>
+<script src="popper/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+document.getElementById('transferBtn').addEventListener('click',function(){
+alert('TRANSACTION SUCCESSFULL!!');
+});
+</script>
+<script src="index.js"></script>
+</body>
+</html>
