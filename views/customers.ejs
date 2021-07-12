@@ -39,7 +39,7 @@
                 </span>
                 <span class="navbar-text ml-2">
                     
-                    <a role="button" data-target="#transferModal" data-toggle="modal" class="btn btn-outline-light">
+                    <a role="button" id="transfer" data-target="#transferModal" data-toggle="modal" class="btn btn-outline-light">
                         <i class="fas fa-exchange-alt"> Transfer</i>
                     </a>
                 </span>
@@ -59,20 +59,20 @@
                 <div class="modal-body container row">
                     <form method="POST" class="col-12 col-sm-7 border-right">
                         <div class="form-group row">
-                            <span class="fa fa-user"></span><input type="text" id="name" name="name" class="col-11 border-bottom" required autocomplete="off">
+                            <span class="fa fa-user"></span><input type="text" id="name" name="name" class="col-11 border-bottom" required autocomplete="off" style="padding: 3px 30px;">
                             <label for="name" class="col-12 offset-1">Name</label>
                             
                         </div>
                         <div class="form-group row">
-                            <span class="fa fa-envelope-o"></span><input type="email" name="email" id="email"  class="col-11  border-bottom mx-3" required autocomplete="off" style="margin-top: -10px;">
+                            <span class="fa fa-envelope-o"></span><input type="email" name="email" id="email"  class="col-11  border-bottom mx-3" required autocomplete="off" style="margin-top: -10px; padding: 3px 30px;">
                             <label for="email" class="col-12 offset-1">Email</label>
                         </div>
                         <div class="form-group row">
-                            <span class="fa fa-lock"></span><input type="password" name="pass" id="password"  class="col-11  border-bottom" required autocomplete="off">
+                            <span class="fa fa-lock"></span><input type="password" name="pass" id="password"  class="col-11  border-bottom" required autocomplete="off" style="padding: 3px 30px;">
                             <label for="password" class="col-12 offset-1">Password</label>
                         </div>
                         <div class="form-group row">
-                            <span class="fa fa-envelope"></span><input type="number" id="balance" name="balance" class="col-11  border-bottom mx-3" required autocomplete="off" style="margin-top: -10px;">
+                            <span class="fa fa-envelope"></span><input type="number" id="balance" name="balance" class="col-11  border-bottom mx-3" required autocomplete="off" style="margin-top: -10px; padding: 3px 30px;">
                             <label for="balance" class="col-12 offset-1">Initial Balance</label>
                         </div>
                         <div class="col-12 offset-1">
@@ -103,22 +103,22 @@
                 <div class="modal-body container row">
                     <form method="POST" action="/transfer" class="col-12 col-sm-7 border-right">
                         <div class="form-group row">
-                            <span class="fa fa-user"></span><input type="text" id="sendername" name="sendername" class="col-11 border-bottom" required autocomplete="off">
+                            <span class="fa fa-user"></span><input type="text" id="sendername" name="sendername" class="col-11 border-bottom" required autocomplete="off" style="padding: 3px 30px;">
                             <label for="sendername" class="col-12 offset-1">Sender's Name</label>
                             
                         </div>
                         <div class="form-group row">
-                            <span class="fa fa-lock"></span><input type="password" id="senderpass" name="senderpass" class="col-11 border-bottom" required autocomplete="off">
+                            <span class="fa fa-lock"></span><input type="password" id="senderpass" name="senderpass" class="col-11 border-bottom" required autocomplete="off" style="padding: 3px 30px;">
                             <label for="senderpass" class="col-12 offset-1">Sender's Password</label>
                             
                         </div>
                         <div class="form-group row">
-                            <span class="fa fa-user"></span><input type="text" id="recievername" name="recievername" class="col-11 border-bottom" required autocomplete="off">
+                            <span class="fa fa-user"></span><input type="text" id="recievername" name="recievername" class="col-11 border-bottom" required autocomplete="off" style="padding: 3px 30px;">
                             <label for="sendername" class="col-12 offset-1">Reciever's Name</label>
                             
                         </div>
                         <div class="form-group row">
-                            <i class="fas fa-rupee-sign"></i><input type="number" id="transferamt" name="transferamt" class="col-11 border-bottom" required autocomplete="off">
+                            <i class="fas fa-rupee-sign"></i><input type="number" id="transferamt" name="transferamt" class="col-11 border-bottom" required autocomplete="off" style="padding: 3px 30px;">
                             <label for="transferamt" class="col-12 offset-1">Amount</label>
                         </div>
                         <div class="col-12 offset-1">
